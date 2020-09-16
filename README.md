@@ -1,6 +1,6 @@
 # react-native-stepcounter-ios-android
 
-react native pedometer for android and ios
+React Native Pedometer for Android and IOS
 
 ## Installation
 
@@ -15,7 +15,32 @@ import StepcounterIosAndroid from "react-native-stepcounter-ios-android";
 
 // ...
 
-const result = await StepcounterIosAndroid.multiply(3, 7);
+React.useEffect(() => {
+  StepcounterIosAndroid.isSupported()
+    .then((result) => {
+      if (result) {
+        console.log('Sensor TYPE_STEP_COUNTER is supported on this device');
+
+        const myModuleEvt = new NativeEventEmitter(
+          NativeModules.StepcounterIosAndroid
+        );
+        myModuleEvt.addListener('StepCounter', (data) => {
+          console.log('STEPS', data.steps);
+          setSteps(data.steps);
+        });
+
+        StepcounterIosAndroid.startStepCounter();
+      } else {
+        console.log(
+          'Sensor TYPE_STEP_COUNTER is not supported on this device'
+        );
+      }
+    })
+    .catch((err) => console.log(err));
+
+  return () => StepcounterIosAndroid.stopStepCounter();
+}, []);
+
 ```
 
 ## Contributing
