@@ -7,6 +7,27 @@ React Native Pedometer for Android and IOS
 ```sh
 npm install react-native-stepcounter-ios-android
 ```
+or
+
+```sh
+yarn add react-native-stepcounter-ios-android
+```
+
+ios:
+in Info.Plist
+
+```js
+  <key>NSMotionUsageDescription</key>
+  <string>In order to count steps I need an access to your pedometer</string>
+```
+
+android:
+in AndroidManifest.xml
+
+```js
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.gms.permission.ACTIVITY_RECOGNITION"/>
+```
 
 ## Usage
 
