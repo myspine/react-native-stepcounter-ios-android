@@ -33,7 +33,7 @@ class StepCounterRecord(reactContext: ReactApplicationContext) : SensorEventList
 
   fun stop() {
     mSensorManager.unregisterListener(this)
-    //initSteps = null
+    initSteps = null
   }
 
   private fun sendEvent(eventName:String, params:WritableMap?) {
