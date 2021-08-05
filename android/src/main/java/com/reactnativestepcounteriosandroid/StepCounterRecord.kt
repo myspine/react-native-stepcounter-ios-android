@@ -53,23 +53,18 @@ class StepCounterRecord(reactContext: ReactApplicationContext) : SensorEventList
     val map = Arguments.createMap()
     if (mySensor.type === Sensor.TYPE_STEP_COUNTER)
     {
-      val curTime = System.currentTimeMillis()
-      i++
-      if ((curTime - lastUpdate) > delay)
-      {
-        i = 0
-        if (initSteps === null) {
-          initSteps = sensorEvent.values[0].toDouble()
-        } else {
-          val curSteps = sensorEvent.values[0].toDouble().minus(initSteps!!)
-          if (curSteps != null) {
+      //val curTime = System.currentTimeMillis()
+      //i++
+      //if ((curTime - lastUpdate) > delay)
+      //{
+      //  i = 0
+        val curSteps = sensorEvent.values[0].toDouble()
+        if (curSteps != null) {
             map.putDouble("steps", curSteps)
-          }
-
-          sendEvent("StepCounter", map)
-          lastUpdate = curTime
+            sendEvent("StepCounter", map)
         }
-      }
+
+      //}
     }
   }
 
