@@ -62,9 +62,9 @@ class StepCounterRecord(reactContext: ReactApplicationContext) : SensorEventList
           initSteps = sensorEvent.values[0].toDouble()
         } else {
           val curSteps = sensorEvent.values[0].toDouble().minus(initSteps!!)
-          if (curSteps != null) {
-            map.putDouble("steps", curSteps)
-          }
+          initSteps+=curSteps
+          
+          map.putDouble("steps", curSteps)
 
           sendEvent("StepCounter", map)
           lastUpdate = curTime
