@@ -80,4 +80,13 @@ class StepcounterIosAndroidModule : ReactContextBaseJavaModule {
       if (stepCounterRecord != null)
         mStepCounterRecord?.stop();
     }
+    
+    @ReactMethod    
+    fun addListener(eventName: String?) {        
+    // Keep: Required for RN built in Event Emitter Calls.    
+    }     
+    @ReactMethod    
+    fun removeListeners(count: Int?) {        
+    // Keep: Required for RN built in Event Emitter Calls.    
+    }
 }
