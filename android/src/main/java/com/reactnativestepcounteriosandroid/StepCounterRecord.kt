@@ -27,7 +27,7 @@ class StepCounterRecord(reactContext: ReactApplicationContext) : SensorEventList
   fun start(delay: Int): Int {
 		this.delay = delay
     mStepCounter = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
-    mSensorManager.registerListener(this, mStepCounter, SensorManager.SENSOR_DELAY_FASTEST)
+    mSensorManager.registerListener(this, mStepCounter, SensorManager.SENSOR_DELAY_NORMAL)
     return 1
 	}
 
