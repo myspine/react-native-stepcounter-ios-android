@@ -41,7 +41,7 @@ class StepcounterIosAndroidModule : ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    fun startStepCounter(): Int {
+    fun startStepCounter(delay: Int): Int {
       if (Build.VERSION.SDK_INT >= 29) {
         Log.d("stepCounter", "message")
         if (ContextCompat.checkSelfPermission(this.mReactContext,
@@ -68,7 +68,6 @@ class StepcounterIosAndroidModule : ReactContextBaseJavaModule {
       if (mStepCounterRecord == null)
         mStepCounterRecord = StepCounterRecord(mReactContext)
       val stepCounterRecord = mStepCounterRecord
-      val delay = 1000
       if (stepCounterRecord != null)
         return stepCounterRecord.start(delay)
       return 0
@@ -80,13 +79,13 @@ class StepcounterIosAndroidModule : ReactContextBaseJavaModule {
       if (stepCounterRecord != null)
         mStepCounterRecord?.stop();
     }
-    
-    @ReactMethod    
-    fun addListener(eventName: String?) {        
-    // Keep: Required for RN built in Event Emitter Calls.    
-    }     
-    @ReactMethod    
-    fun removeListeners(count: Int?) {        
-    // Keep: Required for RN built in Event Emitter Calls.    
+
+    @ReactMethod
+    fun addListener(eventName: String?) {
+    // Keep: Required for RN built in Event Emitter Calls.
+    }
+    @ReactMethod
+    fun removeListeners(count: Int?) {
+    // Keep: Required for RN built in Event Emitter Calls.
     }
 }
