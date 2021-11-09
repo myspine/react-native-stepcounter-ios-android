@@ -2,7 +2,7 @@ import { NativeModules } from 'react-native';
 
 type StepcounterIosAndroidType = {
   isSupported(): Promise<boolean>;
-  startStepCounter(): any;
+  startStepCounter(delayMs: number): any;
   stopStepCounter(): any;
 };
 
