@@ -25,7 +25,7 @@ export default function App() {
             setSteps(data.steps);
           });
 
-          StepcounterIosAndroid.startStepCounter();
+          StepcounterIosAndroid.startStepCounter(4000);
         } else {
           console.log(
             'Sensor TYPE_STEP_COUNTER is not supported on this device'
